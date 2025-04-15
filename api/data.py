@@ -1,5 +1,5 @@
 # API 키 설정 (공공데이터포털에서 발급받은 키)
-api_key = 'IC2pnL+590EQBSFgqvngRKjIwCftCwWFs5zRr1ako12aGYRiA0PnCxCj5e28Kv2OiLfDEqiholf5ilTFeAd7yQ=='
+api_key = 'api_key'
 
 # 필요한 라이브러리 임포트
 import requests  # HTTP 요청을 보낼 때 사용
