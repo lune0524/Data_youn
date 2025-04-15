@@ -62,26 +62,3 @@ reduced_df = merged_df[['species', 'bill_length_mm', 'habitat']]
 
 # 결과 출력 (병합된 데이터프레임의 첫 5행을 출력)
 print(reduced_df.head())
-
-
-# 3. 데이터 변환 및 이산화 예제
-
-# 1. 데이터 변환 (스케일링) - MinMaxScaler를 사용하여 값을 0과 1 사이로 정규화
-from sklearn.preprocessing import MinMaxScaler
-
-# MinMaxScaler 객체 생성
-scaler = MinMaxScaler()
-
-# 'bill_length_mm', 'bill_depth_mm', 'flipper_length_mm', 'body_mass_g' 열을 0과 1 사이로 정규화
-df_new[['bill_length_mm', 'bill_depth_mm', 'flipper_length_mm', 'body_mass_g']] = scaler.fit_transform(
-    df_new[['bill_length_mm', 'bill_depth_mm', 'flipper_length_mm', 'body_mass_g']]
-)
-
-# 2. 데이터 이산화 (이산화 함수 적용)
-# 'body_mass_g' 열을 두 개의 범주('Low', 'High')로 이산화
-bins = [0, 3500, 6000]  # 나누는 구간 (Low: 0~3500, High: 3500~6000)
-labels = ['Low', 'High']  # 범주 이름
-df_new['body_mass_category'] = pd.cut(df_new['body_mass_g'], bins=bins, labels=labels)
-
-# 결과 출력 (이산화된 데이터를 포함한 데이터프레임의 첫 5행을 출력)
-print(df_new[['species', 'body_mass_g', 'body_mass_category']].head())
